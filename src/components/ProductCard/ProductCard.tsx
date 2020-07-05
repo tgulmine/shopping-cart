@@ -1,5 +1,4 @@
 import * as React from 'react';
-import './styles/main.scss';
 
 const ProductCard: React.FC = () => {
   return (

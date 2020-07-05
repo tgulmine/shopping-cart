@@ -1,11 +1,20 @@
 import * as React from 'react';
-import './styles/main.scss';
 
 const Header = () => {
+  const profileImage = 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1547415487i/92122571._UX60_CR0,10,60,60_.jpg';
+
   return (
-    <div>
-      <div className="mt-2 text-2xl font-bold">Hello</div>
-      <div className="mt-2 text-gray-nanana">world!</div>
+    <div className="w-full flex justify-between items-center bg-orange-600 py-3">
+      <div className="ml-12 font-bold text-white text-3xl">Shopping</div>
+      <div className="mr-12 flex items-center">
+        <div
+          className="w-10 h-10 rounded-full bg-contain"
+          style={{
+            backgroundImage: `url(${profileImage})`
+          }}
+        />
+        <div className="ml-3 font-bold text-white text-lg">Matheus Santinello</div>
+      </div>
     </div>
   );
 };
