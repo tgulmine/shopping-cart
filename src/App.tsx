@@ -52,7 +52,7 @@ const App: React.FC = () => {
     <div className="flex flex-col w-full">
       <Header />
       <div className="pt-16 px-20">
-        <div className="flex items-center">
+        <div className="flex justify-between">
           <div className="flex flex-wrap w-3/5">
             {products &&
               products.map((product: IProduct, index: number) => {
