@@ -1,6 +1,7 @@
 import React from 'react';
 import { CartValues } from '../CartValues/';
 import { ProductInCart } from '../ProductInCart/';
+import { DiscountForm } from '../DiscountForm';
 import { IProduct } from '../../utils/interfaces';
 
 interface ShoppingCartProps {
@@ -23,13 +24,13 @@ const ShoppingCart: React.FC<ShoppingCartProps> = props => {
         productsInCart.map((product: IProduct, index: number) => {
           return <ProductInCart product={product} updateProductQuantity={props.updateProductQuantity} />;
         })}
-      <div className="form de desconto" />
+      <DiscountForm />
       <CartValues name={'Subtotal'} value={234} total={false} />
       <CartValues name={'Shipping'} value={10} total={false} />
       <CartValues name={'Discount'} value={1} total={false} />
       <CartValues name={'Total'} value={243} total={true} />
       <button
-        className="mt-10 py-4 bg-orange-900 text-orange-100 font-bold text-lg 
+        className="my-10 py-4 bg-orange-900 text-orange-100 font-bold text-lg 
         rounded-lg focus:outline-none hover:bg-orange-500 hover:text-orange-900"
         onClick={() => clickCheckout()}
       >
