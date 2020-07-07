@@ -1,7 +1,8 @@
 import * as React from 'react';
 
 const Header = () => {
-  const profileImage = 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1547415487i/92122571._UX60_CR0,10,60,60_.jpg';
+  const profileImage =
+    'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1547415487i/92122571._UX60_CR0,10,60,60_.jpg';
 
   return (
     <div className="w-full flex justify-between items-center bg-orange-300 py-3">

@@ -1,19 +1,15 @@
-import React, { useState } from 'react';
+import * as React from 'react';
 import { IProduct } from '../../utils/interfaces';
 
-interface ProductCardProps {
+interface ProductInCartProps {
   product: IProduct;
-  addOrRemoveProduct: (product: IProduct) => void;
 }
 
-const ProductCard: React.FC<ProductCardProps> = props => {
+const ProductInCart: React.FC<ProductInCartProps> = props => {
   const { product } = props;
-  const [isActiveBuy, setIsActiveBuy] = useState(true);
 
   function clickBuy() {
     console.log('buy', product);
-    props.addOrRemoveProduct(product);
-    setIsActiveBuy(!isActiveBuy);
   }
 
   return (
@@ -30,10 +26,10 @@ const ProductCard: React.FC<ProductCardProps> = props => {
         focus:outline-none hover:bg-orange-500 hover:text-orange-900"
         onClick={() => clickBuy()}
       >
-        {isActiveBuy ? 'BUY' : 'REMOVE'}
+        BUY
       </button>
     </div>
   );
 };
 
-export default ProductCard;
+export default ProductInCart;
