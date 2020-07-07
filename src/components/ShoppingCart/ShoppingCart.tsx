@@ -1,7 +1,16 @@
-import * as React from 'react';
-import CartValues from '../CartValues/CartValues';
+import React from 'react';
+import { CartValues } from '../CartValues/';
+import { ProductInCart } from '../ProductInCart/';
+import { IProduct } from '../../utils/interfaces';
 
-const ShoppingCart: React.FC = () => {
+interface ShoppingCartProps {
+  productsInCart: IProduct[];
+}
+
+const ShoppingCart: React.FC<ShoppingCartProps> = props => {
+  const { productsInCart } = props;
+  console.log('shop', productsInCart);
+
   function clickCheckout() {
     console.log('checkout');
   }
@@ -9,7 +18,10 @@ const ShoppingCart: React.FC = () => {
   return (
     <div className="pl-16 flex flex-col w-3/4">
       <div className="p-2 text-2xl text-center font-bold bg-orange-500 text-orange-900 rounded-t-lg">Shopping Cart</div>
-      <div className="produtos comp" />
+      {productsInCart &&
+        productsInCart.map((product: IProduct, index: number) => {
+          return <ProductInCart product={product} />;
+        })}
       <div className="form de desconto" />
       <CartValues name={'Subtotal'} value={234} total={false} />
       <CartValues name={'Shipping'} value={10} total={false} />

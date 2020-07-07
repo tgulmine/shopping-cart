@@ -11,7 +11,6 @@ const ProductCard: React.FC<ProductCardProps> = props => {
   const [isActiveBuy, setIsActiveBuy] = useState(true);
 
   function clickBuy() {
-    console.log('buy', product);
     props.addOrRemoveProduct(product);
     setIsActiveBuy(!isActiveBuy);
   }

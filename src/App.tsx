@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './styles/main.scss';
-import Header from './components/Header/Header';
-import ProductCard from './components/ProductCard/ProductCard';
-import ShoppingCart from './components/ShoppingCart/ShoppingCart';
-import api from './api/api';
+import { Header } from './components/Header/';
+import { ProductCard } from './components/ProductCard/';
+import { ShoppingCart } from './components/ShoppingCart/';
+import { api } from './api/';
 import { IProduct, IVoucher } from './utils/interfaces';
 
 const App: React.FC = () => {
@@ -14,11 +14,11 @@ const App: React.FC = () => {
   const [currentAmount, setCurrentAmount] = useState<number[]>([]);
 
   function addOrRemoveProduct(product: IProduct) {
-    const cart = productsInCart;
-    const found = productsInCart.findIndex(productInCart => productInCart === product);
-    if (found === undefined) cart.push(product);
-    else cart.splice(found, 1);
-    setProductsInCart(cart);
+    let cart = [...productsInCart];
+    const found = cart.find(productInCart => productInCart === product);
+    setProductsInCart(found ? cart.filter(p => p !== product) : [...cart, product]);
+
+    /* console.log(productsInCart); */
   }
 
   const fetchProducts = async () => {
@@ -45,8 +45,6 @@ const App: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(vouchers, products);
-
   return (
     <div className="flex flex-col w-full">
       <Header />
@@ -55,11 +53,12 @@ const App: React.FC = () => {
           <div className="flex flex-wrap w-3/5">
             {products &&
               products.map((product: IProduct, index: number) => {
-                return <ProductCard product={product} addOrRemoveProduct={addOrRemoveProduct} />;
+                return <ProductCard key={index} product={product} addOrRemoveProduct={addOrRemoveProduct} />;
               })}
           </div>
           <div className="w-2/5">
-            <ShoppingCart />
+            {console.log({ productsInCart })}
+            <ShoppingCart productsInCart={productsInCart} />
           </div>
         </div>
       </div>
