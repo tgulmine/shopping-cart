@@ -3,6 +3,7 @@ export interface IProduct {
   name: string;
   price: number;
   available: number;
+  inCart: number;
 }
 
 export interface IVoucher {

@@ -5,6 +5,7 @@ import { IProduct } from '../../utils/interfaces';
 
 interface ShoppingCartProps {
   productsInCart: IProduct[];
+  updateProductQuantity: (product: IProduct, add: boolean) => void;
 }
 
 const ShoppingCart: React.FC<ShoppingCartProps> = props => {
@@ -20,7 +21,7 @@ const ShoppingCart: React.FC<ShoppingCartProps> = props => {
       <div className="p-2 text-2xl text-center font-bold bg-orange-500 text-orange-900 rounded-t-lg">Shopping Cart</div>
       {productsInCart &&
         productsInCart.map((product: IProduct, index: number) => {
-          return <ProductInCart product={product} />;
+          return <ProductInCart product={product} updateProductQuantity={props.updateProductQuantity} />;
         })}
       <div className="form de desconto" />
       <CartValues name={'Subtotal'} value={234} total={false} />

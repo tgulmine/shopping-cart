@@ -9,22 +9,38 @@ import { IProduct, IVoucher } from './utils/interfaces';
 const App: React.FC = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [vouchers, setVouchers] = useState<IVoucher[]>([]);
-
   const [productsInCart, setProductsInCart] = useState<IProduct[]>([]);
-  const [currentAmount, setCurrentAmount] = useState<number[]>([]);
 
   function addOrRemoveProduct(product: IProduct) {
     let cart = [...productsInCart];
     const found = cart.find(productInCart => productInCart === product);
+    product.inCart = found ? 0 : 1;
     setProductsInCart(found ? cart.filter(p => p !== product) : [...cart, product]);
-
-    /* console.log(productsInCart); */
   }
+
+  function updateProductQuantity(product: IProduct, add: boolean) {
+    let cart = [...productsInCart];
+    const newProduct = cart.find(productInCart => productInCart === product);
+    if (newProduct) {
+      if (add && newProduct.inCart < newProduct.available) newProduct.inCart++;
+      else if (!add && newProduct.inCart > 0) newProduct.inCart--;
+      let index = cart.findIndex(productInCart => productInCart === product);
+      cart.splice(index, 1, newProduct);
+      setProductsInCart(cart);
+    }
+  }
+
+  function setCurrentProducts(products: IProduct[]) {
+    products.map((p: IProduct) => (p.inCart = 0));
+    setProducts(products);
+  }
+
+  console.log('products', products);
 
   const fetchProducts = async () => {
     try {
       const { data } = await api.get('/products.json');
-      setProducts(data.products);
+      setCurrentProducts(data.products);
     } catch (e) {
       console.log('error fetching products', e.response.data);
     }
@@ -58,7 +74,7 @@ const App: React.FC = () => {
           </div>
           <div className="w-2/5">
             {console.log({ productsInCart })}
-            <ShoppingCart productsInCart={productsInCart} />
+            <ShoppingCart productsInCart={productsInCart} updateProductQuantity={updateProductQuantity} />
           </div>
         </div>
       </div>

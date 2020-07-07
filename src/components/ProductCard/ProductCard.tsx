@@ -18,10 +18,10 @@ const ProductCard: React.FC<ProductCardProps> = props => {
   return (
     <div className="w-40 flex flex-col ml-10 mb-10">
       <div className="h-24 bg-orange-500 rounded-t-lg" />
-      <div className="p-4 flex flex-col bg-orange-200">
-        <div className="font-bold text-orange-900 text-base">{product.name}</div>
+      <div className="p-4 pt-3 flex flex-col bg-orange-200">
+        <div className="pb-1 font-bold text-orange-900 text-base">{product.name}</div>
         <div className="font-normal text-orange-700 text-base">
-          $ {product.price},00 - {product.available} left
+          $ {product.price},00 • {product.available - product.inCart} left
         </div>
       </div>
       <button
