@@ -35,8 +35,6 @@ const App: React.FC = () => {
     setProducts(products);
   }
 
-  console.log('products', products);
-
   const fetchProducts = async () => {
     try {
       const { data } = await api.get('/products.json');
@@ -73,8 +71,11 @@ const App: React.FC = () => {
               })}
           </div>
           <div className="w-2/5">
-            {console.log({ productsInCart })}
-            <ShoppingCart productsInCart={productsInCart} updateProductQuantity={updateProductQuantity} />
+            <ShoppingCart
+              productsInCart={productsInCart}
+              updateProductQuantity={updateProductQuantity}
+              vouchers={vouchers}
+            />
           </div>
         </div>
       </div>

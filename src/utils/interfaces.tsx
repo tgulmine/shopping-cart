@@ -13,3 +13,10 @@ export interface IVoucher {
   amount: number;
   minValue: number;
 }
+
+export interface IValues {
+  subtotal: number;
+  shipping: number;
+  discount: number;
+  total: number;
+}

@@ -1,10 +1,18 @@
 import React, { useState } from 'react';
+import { IVoucher } from '../../utils/interfaces';
 
-const DiscountForm: React.FC = props => {
+interface DiscountFormProps {
+  vouchers: IVoucher[];
+  applyDiscountCode: (voucher: IVoucher) => void;
+}
+
+const DiscountForm: React.FC<DiscountFormProps> = props => {
   const [input, setInput] = useState('');
+  const { vouchers } = props;
 
   function clickApply() {
-    console.log('apply ff', input);
+    const voucher = vouchers.find(voucher => voucher.code === input);
+    if (voucher) props.applyDiscountCode(voucher);
   }
 
   return (

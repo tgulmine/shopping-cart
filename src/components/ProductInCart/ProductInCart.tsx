@@ -17,7 +17,7 @@ const ProductInCart: React.FC<ProductInCartProps> = props => {
           <div className="font-bold text-orange-900 text-base">{product.name}</div>
           <div className="flex justify-between font-normal text-orange-700 text-base">
             <div>Quantity: {product.inCart}</div>
-            <div>$ {product.price},00</div>
+            <div>$ {product.price * product.inCart},00</div>
           </div>
         </div>
         <div className="w-8 flex flex-col items-end border-orange-400 border-l-1 font-normal text-orange-700 text-base">
