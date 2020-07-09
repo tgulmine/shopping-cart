@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { CartValues } from '../CartValues/';
 import { ProductInCart } from '../ProductInCart/';
 import { DiscountForm } from '../DiscountForm';
+import { PaymentModal } from '../PaymentModal';
 import { IProduct, IVoucher, IValues } from '../../utils/interfaces';
 
 interface ShoppingCartProps {
@@ -23,10 +24,7 @@ const ShoppingCart: React.FC<ShoppingCartProps> = props => {
 
   const [activeVoucher, setActiveVoucher] = useState<IVoucher>();
   const [values, setValues] = useState<IValues>(emptyValues);
-
-  function clickCheckout() {
-    console.log('checkout');
-  }
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     calculatePrices();
@@ -78,10 +76,11 @@ const ShoppingCart: React.FC<ShoppingCartProps> = props => {
       <button
         className="my-10 py-4 bg-orange-900 text-orange-100 font-bold text-lg 
         rounded-lg focus:outline-none hover:bg-orange-500 hover:text-orange-900"
-        onClick={() => clickCheckout()}
+        onClick={() => setShowModal(true)}
       >
         CHECKOUT
       </button>
+      {showModal ? <PaymentModal setShowModal={setShowModal} totalValue={values.total} /> : null}
     </div>
   );
 };
