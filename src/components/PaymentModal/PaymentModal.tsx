@@ -28,7 +28,7 @@ const PaymentModal: React.FC<PaymentModalProps> = props => {
 
   return (
     <div
-      className="w-full h-full absolute flex justify-center items-center bg-darken-4 bg-black"
+      className="w-full h-full absolute flex justify-center items-center bg-darken-4 bg-black overflow-hidden"
       style={{
         top: '50%',
         left: '50%',
@@ -37,10 +37,10 @@ const PaymentModal: React.FC<PaymentModalProps> = props => {
       }}
     >
       <div className="py-4 px-16 bg-orange-500 flex flex-col items-center rounded-lg shadow-lg">
-        <div className="text-center font-bold text-2xl text-orange-900">{modalText.title}</div>
+        <div className="text-center font-bold text-xl lg:text-2xl text-orange-900">{modalText.title}</div>
         <button
-          className="mt-6 py-2 px-8 bg-orange-900 text-orange-100 font-bold text-lg 
-        rounded-lg focus:outline-none hover:bg-orange-200 hover:text-orange-900"
+          className="mt-4 lg:mt-6 py-2 px-8 bg-orange-900 text-orange-100 font-bold text-lg 
+        rounded-lg focus:outline-none lg:hover:bg-orange-200 lg:hover:text-orange-900"
           onClick={() => closeModal()}
         >
           {modalText.button}

@@ -60,17 +60,17 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full overflow-x-hidden">
       <Header />
-      <div className="pt-16 px-20">
-        <div className="flex justify-between">
-          <div className="flex flex-wrap w-3/5">
+      <div className="pt-10 lg:pt-16 px-6 lg:px-20">
+        <div className="flex flex-wrap lg:flex-no-wrap justify-between">
+          <div className="flex flex-wrap w-full lg:w-3/5 justify-around lg:justify-start">
             {products &&
               products.map((product: IProduct, index: number) => {
                 return <ProductCard key={index} product={product} addOrRemoveProduct={addOrRemoveProduct} />;
               })}
           </div>
-          <div className="w-2/5">
+          <div className="w-full flex lg:w-2/5 justify-center lg:justify-start">
             <ShoppingCart
               productsInCart={productsInCart}
               updateProductQuantity={updateProductQuantity}

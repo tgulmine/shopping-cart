@@ -29,7 +29,7 @@ const DiscountForm: React.FC<DiscountFormProps> = props => {
       />
       <button
         className="py-2 px-4 bg-orange-900 text-orange-100 font-bold text-sm 
-        rounded-lg focus:outline-none hover:bg-orange-500 hover:text-orange-900"
+        rounded-lg focus:outline-none lg:hover:bg-orange-500 lg:hover:text-orange-900"
         onClick={() => clickApply()}
       >
         APPLY
