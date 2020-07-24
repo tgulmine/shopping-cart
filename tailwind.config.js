@@ -333,6 +333,7 @@ module.exports = {
     },
     minWidth: {
       '0': '0',
+      'lgShoppingCart': '343.75px',
       full: '100%'
     },
     objectPosition: {

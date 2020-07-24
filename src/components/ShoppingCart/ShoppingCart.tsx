@@ -60,7 +60,7 @@ const ShoppingCart: React.FC<ShoppingCartProps> = props => {
   }
 
   return (
-    <div className="lg:pl-16 flex flex-col w-7/8 lg:w-3/4">
+    <div className="lg:pl-16 flex flex-col w-7/8 lg:w-3/4 lg:min-w-lgShoppingCart">
       <div className="p-2 text-xl lg:text-2xl text-center font-bold bg-orange-500 text-orange-900 rounded-t-lg">
         Shopping Cart
       </div>
