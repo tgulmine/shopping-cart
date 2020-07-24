@@ -11,6 +11,8 @@ const CartValues: React.FC<CartValuesProps> = props => {
   const { value } = props;
   const { total } = props;
 
+  const showValue: string = (Math.round(value * 100) / 100).toFixed(2).replace('.', ',');
+
   return (
     <div
       className={
@@ -22,7 +24,7 @@ const CartValues: React.FC<CartValuesProps> = props => {
       }
     >
       <div>{name}</div>
-      <div>$ {value},00</div>
+      <div>$ {showValue}</div>
     </div>
   );
 };
