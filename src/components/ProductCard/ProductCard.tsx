@@ -16,7 +16,7 @@ const ProductCard: React.FC<ProductCardProps> = props => {
   }
 
   return (
-    <div className="w-32 lg:w-40 flex flex-col lg:ml-10 mb-10">
+    <div className="w-32 lg:w-40 flex flex-col lg:ml-10 mb-8 lg:mb-10">
       <div className="h-16 lg:h-24 bg-orange-500 rounded-t-lg" />
       <div className="p-3 lg:p-4 pt-2 lg:pt-3 flex flex-col bg-orange-200">
         <div className="pb-1 font-bold text-orange-900 text-sm">{product.name}</div>

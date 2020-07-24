@@ -75,7 +75,7 @@ const ShoppingCart: React.FC<ShoppingCartProps> = props => {
       <CartValues name={'Total'} value={values.total} total={true} />
       <div className="flex justify-center">
         <button
-          className="mt-6 mb-16 lg:mt-10 lg:mb-0 py-3 lg:py-4 bg-orange-900 text-orange-100 font-bold text-base lg:text-lg 
+          className="mt-6 mb-16 lg:mt-6 lg:mb-0 py-3 lg:py-4 bg-orange-900 text-orange-100 font-bold text-base lg:text-lg 
         rounded-lg focus:outline-none lg:hover:bg-orange-500 lg:hover:text-orange-900 w-3/5 lg:w-full"
           onClick={() => setShowModal(true)}
         >
