@@ -3,8 +3,10 @@ import './styles/main.scss';
 import { Header } from './components/Header/';
 import { ProductCard } from './components/ProductCard/';
 import { ShoppingCart } from './components/ShoppingCart/';
-import { api } from './api/';
+/* import { api } from './api/'; */
 import { IProduct, IVoucher } from './utils/interfaces';
+import dataProducts from './data/products.json';
+import dataVouchers from './data/vouchers.json';
 
 const App: React.FC = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
@@ -30,30 +32,34 @@ const App: React.FC = () => {
     }
   }
 
-  function setCurrentProducts(products: IProduct[]) {
+  /* function setCurrentProducts(products: IProduct[]) {
     products.map((p: IProduct) => (p.inCart = 0));
     setProducts(products);
-  }
+  } */
 
   const fetchProducts = async () => {
-    try {
+    /* try {
       const { data } = await api.get('/products.json');
       setCurrentProducts(data.products);
     } catch (e) {
       console.log('error fetching products', e.response.data);
-    }
+    } */
+    setProducts(dataProducts.products);
   };
 
   const fetchVouchers = async () => {
-    try {
+    /* try {
       const { data } = await api.get('/vouchers.json');
       setVouchers(data.vouchers);
     } catch (e) {
       console.log('error fetching vouchers', e.response.data);
-    }
+    } */
+    setVouchers(dataVouchers.vouchers);
   };
 
   useEffect(() => {
+    /* I still left the code for the api call but changed it to get the data directly 
+    from json files because the api is not reliable */
     fetchProducts();
     fetchVouchers();
     // eslint-disable-next-line react-hooks/exhaustive-deps
