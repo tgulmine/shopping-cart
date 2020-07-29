@@ -62,6 +62,9 @@ const App: React.FC = () => {
     from json files because the api is not reliable */
     fetchProducts();
     fetchVouchers();
+    console.log(
+      'Vouchers:\n#30OFF: percentual voucher of 30%\n#100DOLLARS: fixed voucher of $100.00\n#SHIPIT: free shipping voucher with minimum value of $300.50'
+    );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
